@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Votação</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    </head>    
+    <body>
+        <div class="container-fluid">                        
+            <h1>Prévia:</h1>            
+            <ul>
+            {% for key, value in candidatos.items %}            
+                <li>{{ value.nome }} - {{ value.percentual | floatformat:2 }}%</li>
+            {% endfor %}
+            </ul>
+            <i> * Calculado pela última vez em <b>{{ atualizado_em | date:"d/M/Y G:i:s" }}</b> a partir de <b>{{ qtd_votos }}</b> votos.</i>                         
+        </div>
+    </body>
+    <script>
+        setTimeout(function(){
+            window.location.reload(1);
+        }, 2000);
+    </script>
+</html>
